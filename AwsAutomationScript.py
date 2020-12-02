@@ -17,7 +17,7 @@ def run_testcases():
 
  
 
-    instance_ip = "13.114.79.54"
+    instance_ip = "x.x.x.x"
     cmd = "bash read_test_cases.sh test_allbash read_test_cases.sh test_all"
 
  
@@ -54,13 +54,13 @@ def copy_test_folder(target_ip, pem_file):
 def launch_instance(ec2_res):
     print ("Launching EC2 instance ....")
     instances = ec2_res.create_instances(
-            ImageId='ami-0787d66c1cebe902d',
+            ImageId='ami-xxxxxxxxxx',
             MinCount=1,
             MaxCount=1,
             InstanceType='t2.micro',
             #KeyName='test setup',
-            SecurityGroupIds=['sg-007dc268a43cac53f'],
-            SubnetId='subnet-5abe2906',
+            SecurityGroupIds=['sg-xxxxxxxxxx'],
+            SubnetId='subnet-xxxxxxxxx',
             TagSpecifications=[
                 {
                     'ResourceType' : 'instance',
@@ -71,17 +71,17 @@ def launch_instance(ec2_res):
                         },
                         {
                             'Key': 'Owner',
-                            'Value': 'saurabhv'
+                            'Value': 'xxxxxx'
                         },
                         {
                             'Key':'Project',
-                            'Value': 'Ort'
+                            'Value': 'xxxx'
                         }
                     ]
                 },
             ]
            #IamInstanceProfile={
-               # 'Arn': 'arn:aws:iam::023017925022:role/OrganizationAccountAccessRole',
+               # 'Arn': 'arn:aws:iam::xxxxxxxxxx:role/OrganizationAccountAccessRole',
                # 'Name': 'OrganizationAccountAccessRole'
                # }
     )
@@ -139,7 +139,7 @@ def main():
  
 
     assumed_role_object = sts_client.assume_role(
-            RoleArn="arn:aws:iam::023017925022:role/OrganizationAccountAccessRole",
+            RoleArn="arn:aws:iam::xxxxxxxxxxxx:role/OrganizationAccountAccessRole",
             RoleSessionName="OrganizationAccountAccessRole"
     )
 
